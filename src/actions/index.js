@@ -37,7 +37,7 @@ export const fetchIngredients = ingredient => dispatch => {
 export const fetchRecipes = (ingredients, complex) => async dispatch => {
   try {
 
-  if (complex.isComplex === true){
+  // if (complex.isComplex === true){
 
     let ingredientsJoin = ingredients.toString().split(',').join('%252C%20')
     let ingredientsStr = ingredientsJoin.replace(/ /g, '+')
@@ -67,24 +67,24 @@ export const fetchRecipes = (ingredients, complex) => async dispatch => {
       type: FETCH_RECIPES,
       data: results.data.results
     });
-  } else {
     
-    let ingredientsJoin = ingredients.toString().split(',').join('%252C')
-    let ingredientsStr = ingredientsJoin.replace(/ /g, '+')
-    // console.log('!@-------fetchSimple-------@!')
-    // console.log(ingredientsStr)
+  // } else {
+    
+  //   let ingredientsJoin = ingredients.toString().split(',').join('%252C')
+  //   let ingredientsStr = ingredientsJoin.replace(/ /g, '+')
+  //   // console.log('!@-------fetchSimple-------@!')
+  //   // console.log(ingredientsStr)
 
-    let results = await Axios.get(
-      `/recipes/findByIngredients?number=50&ranking=1&ignorePantry=false&ingredients=${ingredientsStr}`
-    )
+  //   let results = await Axios.get(
+  //     `/recipes/findByIngredients?number=50&ranking=1&ignorePantry=false&ingredients=${ingredientsStr}`
+  //   )
 
-    dispatch({
-      type: FETCH_RECIPES,
-      data: results.data
-    });
+  //   dispatch({
+  //     type: FETCH_RECIPES,
+  //     data: results.data
+  //   });
 
-  }
-
+  // }
 
   } catch(err) {
       console.log(err);

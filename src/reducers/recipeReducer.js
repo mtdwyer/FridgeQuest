@@ -21,8 +21,12 @@ export default (state = initialState, action) => {
     switch(action.type) {
 
         case FETCH_RECIPES:
-            // console.log('!@-------action.data-------@!')
-            // console.log(action.data)
+            console.log('!@-------action.data-------@!')
+            console.log(action.data)
+
+            if (action.data === null) {
+                return null
+            }
             
             copyData = action.data
             copyArray = copyData

@@ -299,6 +299,12 @@ class Results extends Component {
        
         );
       });
+    } else {
+      return (
+        <h1>
+          No Results
+        </h1>
+      )
     }
   
   return (
